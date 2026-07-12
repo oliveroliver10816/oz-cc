@@ -112,7 +112,7 @@ function fetchData(force){
    .then(function(r){if(r.status===401){throw {u:1};}return r.json();})
    .then(function(d){
      if(d.error)throw d;
-     try{localStorage.setItem('oz_d_'+RANGE,JSON.stringify(d));}catch(e){}
+     try{localStorage.setItem('oz_d2_'+RANGE,JSON.stringify(d));}catch(e){}
      render(d); app.classList.remove('load'); rb.classList.remove('spin');
      setMeta('Updated '+esc(d.gen)+' · '+esc(d.win)+' · auto-refresh 30m',false);
    })
@@ -124,7 +124,7 @@ function fetchData(force){
    });
 }
 function load(){
-  try{var c=localStorage.getItem('oz_d_'+RANGE);if(c){render(JSON.parse(c));}else{skeleton();}}catch(e){skeleton();}
+  try{var c=localStorage.getItem('oz_d2_'+RANGE);if(c){render(JSON.parse(c));}else{skeleton();}}catch(e){skeleton();}
   fetchData(false);
   if(timer)clearInterval(timer);
   timer=setInterval(function(){fetchData(true);},1800000);
