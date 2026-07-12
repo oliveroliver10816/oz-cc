@@ -31,12 +31,14 @@ select:hover{border-color:var(--teal)}select:focus{outline:none;border-color:var
 .kpis{grid-template-columns:repeat(5,1fr)}
 @media(max-width:880px){.kpis{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.kpis{grid-template-columns:1fr}}
 .card{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,0)) ,var(--panel);border:1px solid var(--line);border-radius:15px;position:relative;overflow:hidden;transition:transform .22s cubic-bezier(.2,.7,.2,1),border-color .22s,box-shadow .22s}
-.card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 14px 34px rgba(0,0,0,.32),0 0 0 1px rgba(46,212,176,.16),0 0 26px rgba(46,212,176,.06)}
 .kpi{padding:15px 17px}
-.kpi::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent 60%);opacity:.55}
-.kpi.aff::before{background:linear-gradient(90deg,var(--sky),transparent 60%)}
-.kpi.pos::before{background:linear-gradient(90deg,var(--green),transparent 60%)}
-.kpi.geo::before{background:linear-gradient(90deg,var(--gold),transparent 65%);opacity:.4}
+.kpi::before{content:"";position:absolute;top:0;left:-40%;width:180%;height:2px;background:linear-gradient(90deg,transparent,var(--teal) 30%,var(--teal) 42%,transparent 70%);opacity:.7;animation:sweep 4.5s ease-in-out infinite}
+@keyframes sweep{0%,100%{transform:translateX(-22%)}50%{transform:translateX(22%)}}
+.kpi.aff::before{background:linear-gradient(90deg,transparent,var(--sky) 30%,var(--sky) 42%,transparent 70%)}
+.kpi.imp::before{background:linear-gradient(90deg,transparent,#a98bff 30%,#a98bff 42%,transparent 70%)}
+.kpi.pos::before{background:linear-gradient(90deg,transparent,var(--green) 30%,var(--green) 42%,transparent 70%)}
+.kpi.geo::before{background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 42%,transparent 70%);opacity:.5}
 .kpi .l{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;font-weight:600}
 .kpi .v{font-size:30px;font-weight:700;margin-top:6px;letter-spacing:-1px;font-variant-numeric:tabular-nums;line-height:1}
 .kpi .s{color:var(--faint);font-size:12px;margin-top:5px}
@@ -49,7 +51,8 @@ select:hover{border-color:var(--teal)}select:focus{outline:none;border-color:var
 .gsale{background:rgba(236,192,106,.16);color:var(--gold);font-weight:700;font-size:10.5px;border-radius:5px;padding:1px 6px;margin-left:6px}
 h2{font-size:12px;text-transform:uppercase;letter-spacing:.9px;color:var(--dim);margin:32px 0 12px;font-weight:700;display:flex;align-items:center;gap:10px}
 h2::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line2),transparent)}
-.geos{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.geos{grid-template-columns:repeat(2,1fr)}
+@media(max-width:740px){.geos{grid-template-columns:1fr}}
 .geo{padding:16px 17px}
 .geo .gh{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
 .geo .gh .n{font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:8px}.geo .gh .n .fl{font-size:19px}
