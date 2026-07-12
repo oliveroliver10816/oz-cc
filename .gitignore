@@ -2,3 +2,4 @@ build.py
 __pycache__/
 *.pyc
 CLAUDE.md
+oz_worker.js
